@@ -73,7 +73,7 @@ public class DAddressSettingActivity extends ActionBarActivity {
     private class SubmitAddressTask extends AsyncTask<String,Void,Object>{
         @Override
         protected Object doInBackground(String... params) {
-            String id = "mg1546256548";
+            String id = "admin";
             String street = edit_street.getText().toString();
             String building = edit_building.getText().toString();
             String room = edit_room.getText().toString();
