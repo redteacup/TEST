@@ -1,8 +1,10 @@
 package com.setting.address;
 
+import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,11 +30,15 @@ public class DAddressSettingActivity extends ActionBarActivity {
     private EditText edit_street;
     private EditText edit_building;
     private EditText edit_room;
+    private String requestIP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daddress_setting);
+
+        requestIP = this.getResources().getString(R.string.server_address);
+
         edit_street = (EditText) this.findViewById(R.id.edit_street);
         edit_building = (EditText) this.findViewById(R.id.edit_building);
         edit_room = (EditText) this.findViewById(R.id.edit_room);
@@ -84,7 +90,7 @@ public class DAddressSettingActivity extends ActionBarActivity {
 
         private void submitUserAddr(String id, String street,String building,String room){
             //text.setText(id + ": " + addr);
-            String requestIP = "http://10.0.3.2:8080/LazyGift/MyAddrSet";
+            Log.v("ip" , requestIP);
             HttpClient client = new DefaultHttpClient();
             HttpPost httpRequest = new HttpPost(requestIP);
             //String url = requestIP + "?ID="+ id + "&ADDRESS="+addr;
