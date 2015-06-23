@@ -1,17 +1,32 @@
 package com.example.liveangel.test;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import com.setting.address.DAddressSettingActivity;
 
 
 public class Main extends ActionBarActivity {
-
+    private Button daddress_set_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        daddress_set_btn = (Button) this.findViewById(R.id.DAddress_button);
+        daddress_set_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //get 用户id
+                Intent intent = new Intent(Main.this, DAddressSettingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
