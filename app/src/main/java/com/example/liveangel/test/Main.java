@@ -63,4 +63,10 @@ public class Main extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void OnClickOrderDetail(View view) {
+        Intent intent = new Intent(Main.this,OrderDetail.class);
+        intent.putExtra("order_id", "1");
+        startActivity(intent);
+    }
 }
