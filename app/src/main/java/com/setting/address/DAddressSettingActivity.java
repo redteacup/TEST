@@ -1,7 +1,11 @@
 package com.setting.address;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.nfc.Tag;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,11 +40,24 @@ public class DAddressSettingActivity extends ActionBarActivity {
     private TextView dorm_view;
     private EditText edit_room;
     private String requestIP;
-
+    private Activity self;
+    private Handler mHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daddress_setting);
+        self = this;
+        mHandler =  new Handler(){
+            @Override
+            public void handleMessage(Message msg){
+                String str = msg.getData().getString("response");
+                new  AlertDialog.Builder(self)
+                        .setTitle("提示")
+                        .setMessage(str)
+                        .setPositiveButton("确定" ,  null )
+                        .show();
+            }
+        };
 
         requestIP = this.getResources().getString(R.string.server_address);
         dorm_view = (TextView) this.findViewById(R.id.label_dorm);
@@ -105,7 +122,6 @@ public class DAddressSettingActivity extends ActionBarActivity {
 
         private void submitUserAddr(String id, String street,String building,String room){
             //text.setText(id + ": " + addr);
-            Log.v("ip" , requestIP);
             HttpClient client = new DefaultHttpClient();
             HttpPost httpRequest = new HttpPost(requestIP);
             //String url = requestIP + "?ID="+ id + "&ADDRESS="+addr;
@@ -123,16 +139,20 @@ public class DAddressSettingActivity extends ActionBarActivity {
 
                 if(response.getStatusLine().getStatusCode() == 200)
                 {
-            /*取出响应字符串*/
-
-                    String strResult = EntityUtils.toString(response.getEntity());
-                    //show strResult?
-                    System.out.println(strResult);
+                    Message msg = new Message();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("response","更改默认地址成功！");
+                    msg.setData(bundle);
+                    mHandler.sendMessage(msg);
                 }
                 else
                 {
                     //处理错误。。。。
-                    System.out.println("Error Response: " + response.getStatusLine().toString());
+                    Message msg = new Message();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("response","网络太渣，更改默认地址失败！");
+                    msg.setData(bundle);
+                    mHandler.sendMessage(msg);
                 }
             }catch(Exception e){
                 e.printStackTrace();

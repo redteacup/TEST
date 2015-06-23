@@ -20,11 +20,24 @@
             android:text="订单管理"
             android:id="@+id/orderManager"
             android:layout_gravity="center_horizontal"
-            android:textSize="16px"
-            android:paddingLeft="12px"
-            android:paddingTop="4px"
-            android:paddingBottom="4px"
-            android:paddingRight="12px"
+            android:textSize="16sp"
+            android:paddingLeft="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="12dp"
+            android:textAlignment="center" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_activity_daddress_setting"
+            android:id="@+id/Daddress_set_button"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16sp"
+            android:paddingLeft="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="12dp"
             android:textAlignment="center" />
     </LinearLayout>
 </RelativeLayout>

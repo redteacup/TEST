@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.order.manager.OrderManagerActivity;
+import com.setting.address.DAddressSettingActivity;
 
 
 public class Main extends ActionBarActivity {
@@ -26,6 +27,15 @@ public class Main extends ActionBarActivity {
                 intent.setClass(Main.this, OrderManagerActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        Button daddress_set_btn = (Button) this.findViewById(R.id.Daddress_set_button);
+        daddress_set_btn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(Main.this, DAddressSettingActivity.class);
+                startActivity(intent);
             }
         });
     }
