@@ -8,21 +8,32 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.order.manager.OrderManagerActivity;
 import com.setting.address.DAddressSettingActivity;
 
 
 public class Main extends ActionBarActivity {
-    private Button daddress_set_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        daddress_set_btn = (Button) this.findViewById(R.id.DAddress_button);
-        daddress_set_btn.setOnClickListener(new View.OnClickListener() {
+        //initialize button
+        Button orderManagerButton = (Button) findViewById(R.id.orderManager);
+        orderManagerButton.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View view){
+                Intent intent = new Intent();
+                intent.setClass(Main.this, OrderManagerActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        Button daddress_set_btn = (Button) this.findViewById(R.id.Daddress_set_button);
+        daddress_set_btn.setOnClickListener(new Button.OnClickListener(){
             @Override
-            public void onClick(View v) {
-                //get 用户id
+            public void onClick(View view){
                 Intent intent = new Intent(Main.this, DAddressSettingActivity.class);
                 startActivity(intent);
             }
