@@ -26,5 +26,19 @@
             android:paddingBottom="4px"
             android:paddingRight="12px"
             android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btnGHJ"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="订单筛选" 
+            android:layout_gravity="center_horizontal"
+            android:textSize="16px"
+            android:paddingLeft="12px"
+            android:paddingTop="4px"
+            android:paddingBottom="4px"
+            android:paddingRight="12px"
+            android:textAlignment="center" />
+
     </LinearLayout>
 </RelativeLayout>

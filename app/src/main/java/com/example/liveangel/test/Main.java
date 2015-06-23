@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView.FindListener;
 import android.widget.Button;
 
 import com.order.manager.OrderManagerActivity;
@@ -17,6 +18,7 @@ public class Main extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
 
         //initialize button
         Button orderManagerButton = (Button) findViewById(R.id.orderManager);
@@ -28,6 +30,17 @@ public class Main extends ActionBarActivity {
 
             }
         });
+        Button orderManagerButton = (Button) findViewById(R.id.btnGHJ);
+        orderManagerButton.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View view){
+                Intent in = new Intent();
+                intent.setClass(Main.this, MainList.class);
+                startActivity(in);
+
+            }
+        });
+        
+        
     }
 
 
