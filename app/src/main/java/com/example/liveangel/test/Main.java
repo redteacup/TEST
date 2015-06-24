@@ -9,7 +9,9 @@ import android.view.View;
 import android.webkit.WebView.FindListener;
 import android.widget.Button;
 
+import com.order.detail.OrderDetail;
 import com.order.manager.OrderManagerActivity;
+import com.setting.address.DAddressSettingActivity;
 
 
 public class Main extends ActionBarActivity {
@@ -30,6 +32,7 @@ public class Main extends ActionBarActivity {
 
             }
         });
+<<<<<<< HEAD
         Button orderManagerButton = (Button) findViewById(R.id.btnGHJ);
         orderManagerButton.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View view){
@@ -41,6 +44,17 @@ public class Main extends ActionBarActivity {
         });
         
         
+=======
+
+        Button daddress_set_btn = (Button) this.findViewById(R.id.Daddress_set_button);
+        daddress_set_btn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(Main.this, DAddressSettingActivity.class);
+                startActivity(intent);
+            }
+        });
+>>>>>>> origin/master
     }
 
 
@@ -65,5 +79,11 @@ public class Main extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void OnClickOrderDetail(View view) {
+        Intent intent = new Intent(Main.this,OrderDetail.class);
+        intent.putExtra("order_id", "1");
+        startActivity(intent);
     }
 }
