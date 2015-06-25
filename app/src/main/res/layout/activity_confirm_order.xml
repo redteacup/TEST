@@ -38,8 +38,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="time"
-            android:ems="10"
             android:id="@+id/deliveryTime" />
 
         <TextView
@@ -52,8 +50,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPostalAddress"
-            android:ems="10"
             android:id="@+id/destination" />
 
         <TextView
@@ -66,8 +62,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:ems="10"
             android:id="@+id/totalPrice" />
 
         <TextView

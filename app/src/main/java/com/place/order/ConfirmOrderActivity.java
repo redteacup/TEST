@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.app.variable.MyAppVariable;
 import com.example.liveangel.test.R;
 
 import org.apache.http.HttpResponse;
@@ -33,18 +34,25 @@ public class ConfirmOrderActivity extends ActionBarActivity {
     private EditText remarks;
     private EditText destination;
     Map<String,String> orderSettings;
+//    MyAppVariable myAppVariable;
+    private static String DEFAULT_USERADDRESS;
     private String requestIP = "http://10.0.3.2:8080/LazyGift/confirmOrderSubmit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_order);
+        new getUserInfoTask().execute();
         confirmButton = (Button) findViewById(R.id.confirmButton);
         goodsName = (EditText) findViewById(R.id.goodsName);
         totalPrice = (EditText) findViewById(R.id.totalPrice);
         deliveryTime = (EditText) findViewById(R.id.deliveryTime);
         remarks = (EditText) findViewById(R.id.remarks);
         destination = (EditText) findViewById(R.id.destination);
+//        destination.setText(myAppVariable.getUserDefaultAddress());
+//        if(DEFAULT_USERADDRESS==""||DEFAULT_USERADDRESS==null){
+//        }
+        destination.setText(DEFAULT_USERADDRESS);
         orderSettings = new HashMap<String,String>();
         confirmButton.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View view){
@@ -54,8 +62,6 @@ public class ConfirmOrderActivity extends ActionBarActivity {
                 orderSettings.put("remarks",remarks.getText().toString());
                 orderSettings.put("destination",destination.getText().toString());
                 new SubmitOrderTask().execute();
-
-
             }
         });
     }
@@ -81,6 +87,50 @@ public class ConfirmOrderActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    private class getUserInfoTask extends AsyncTask<String,Void,Object> {
+        @Override
+        protected Object doInBackground(String... params) {
+            getUserInfo();
+            return null;
+        }
+        public void  getUserInfo(){
+            String requestIP = "http://10.0.3.2:8080/LazyGift/GetMyAddr";
+            HttpClient client = new DefaultHttpClient();
+            HttpPost httpRequest = new HttpPost(requestIP);
+            ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new NameValuePair() {
+                @Override
+                public String getName() {
+                    return "USER_ID";
+                }
+
+                @Override
+                public String getValue() {
+                    return "admin";
+                }
+            });
+            try {
+                httpRequest.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
+                HttpResponse response = client.execute(httpRequest);
+                if(response.getStatusLine().getStatusCode() == 200)
+                {
+            /*取出响应字符串*/
+                    String strResult = EntityUtils.toString(response.getEntity());
+                    System.out.println(strResult);
+//                    myAppVariable = (MyAppVariable) getApplication();
+//                    myAppVariable.setUserDefaultAddress(strResult);
+                    DEFAULT_USERADDRESS = strResult;
+                }
+                else
+                {
+                    //处理错误。。。。
+                    System.out.println("Error Response: " + response.getStatusLine().toString());
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     private class SubmitOrderTask extends AsyncTask<String,Void,Object> {
@@ -109,6 +159,9 @@ public class ConfirmOrderActivity extends ActionBarActivity {
                     String strResult = EntityUtils.toString(response.getEntity());
                     //show strResult?
                     System.out.println(strResult);
+
+
+
                 }
                 else
                 {
