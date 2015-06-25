@@ -10,7 +10,7 @@ import android.view.View;
 import android.webkit.WebView.FindListener;
 import android.widget.Button;
 
-import com.app.variable.MyAppVariable;
+//import com.app.variable.MyAppVariable;
 import com.order.detail.OrderDetail;
 import com.order.manager.OrderManagerActivity;
 import com.place.order.ConfirmOrderActivity;

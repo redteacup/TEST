@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.app.variable.MyAppVariable;
+//import com.app.variable.MyAppVariable;
 import com.example.liveangel.test.R;
 
 import org.apache.http.HttpResponse;
@@ -50,8 +50,9 @@ public class ConfirmOrderActivity extends ActionBarActivity {
         remarks = (EditText) findViewById(R.id.remarks);
         destination = (EditText) findViewById(R.id.destination);
 //        destination.setText(myAppVariable.getUserDefaultAddress());
-//        if(DEFAULT_USERADDRESS==""||DEFAULT_USERADDRESS==null){
-//        }
+        if(DEFAULT_USERADDRESS==""||DEFAULT_USERADDRESS==null){
+
+        }
         destination.setText(DEFAULT_USERADDRESS);
         orderSettings = new HashMap<String,String>();
         confirmButton.setOnClickListener(new Button.OnClickListener(){
