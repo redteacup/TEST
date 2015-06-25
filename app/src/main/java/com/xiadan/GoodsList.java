@@ -1,8 +1,6 @@
 package com.nju.xiadan;
 
 import com.example.xiadan.R;
-import com.example.liveangel.test.R;
-import com.nju.xiadan.data.orderdata;
 import com.xiadan.data.orderdata;
 
 import android.app.Activity;
