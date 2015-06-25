@@ -1,6 +1,8 @@
 package com.place.order;
 
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -33,6 +35,7 @@ public class ConfirmOrderActivity extends ActionBarActivity {
     private EditText deliveryTime;
     private EditText remarks;
     private EditText destination;
+    private Handler mHandler;
     Map<String,String> orderSettings;
 //    MyAppVariable myAppVariable;
     private static String DEFAULT_USERADDRESS;
@@ -49,11 +52,14 @@ public class ConfirmOrderActivity extends ActionBarActivity {
         deliveryTime = (EditText) findViewById(R.id.deliveryTime);
         remarks = (EditText) findViewById(R.id.remarks);
         destination = (EditText) findViewById(R.id.destination);
-//        destination.setText(myAppVariable.getUserDefaultAddress());
-        if(DEFAULT_USERADDRESS==""||DEFAULT_USERADDRESS==null){
 
-        }
-        destination.setText(DEFAULT_USERADDRESS);
+        mHandler = new Handler(){
+            @Override
+            public void handleMessage(Message msg){
+                //set the address.
+                destination.setText(DEFAULT_USERADDRESS);
+            }
+        };
         orderSettings = new HashMap<String,String>();
         confirmButton.setOnClickListener(new Button.OnClickListener(){
             public void onClick(View view){
@@ -89,6 +95,7 @@ public class ConfirmOrderActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     private class getUserInfoTask extends AsyncTask<String,Void,Object> {
         @Override
         protected Object doInBackground(String... params) {
@@ -122,6 +129,7 @@ public class ConfirmOrderActivity extends ActionBarActivity {
 //                    myAppVariable = (MyAppVariable) getApplication();
 //                    myAppVariable.setUserDefaultAddress(strResult);
                     DEFAULT_USERADDRESS = strResult;
+                    mHandler.sendMessage(new Message());
                 }
                 else
                 {
