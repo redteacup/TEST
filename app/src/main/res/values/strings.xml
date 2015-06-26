@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">TEST</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_daddress_setting">默认地址设置</string>
     <string name="content_in_label_dorm">宿舍楼号</string>
@@ -10,7 +9,7 @@
     <string name="content_in_button_submit_DAdress">确认地址</string>
     <string name="title_activity_confirm_order">ConfirmOrderActivity</string>
     <string name="server_address">http://10.0.3.2:8080/LazyGift/MyAddrSet</string>
-    
+
     <string-array name="spinner_dorms">
         <item>费彝明楼</item>
         <item>南园1舍</item>
@@ -33,12 +32,40 @@
         <item>陶园1舍</item>
     </string-array>
 
-    <!--  订单管理部分 -->
+    <!-- 订单管理部分 -->
     <string name="title_activity_order_manager">订单管理</string>
     <string name="tittle_order_wait_list">待处理商品列表</string>
     <string name="order_context">订单内容</string>
     <string name="order_create_date">订单产生时间</string>
-
     <string name="server_context">http://218.94.159.104:5000/LazyGift/</string>
     <string name="local_context">http://10.0.3.2:8080/LazyGift/</string>
+
+    <!-- 下单筛选部分 -->
+    <string name="app_name2">下单筛选页面</string>
+    <string name="hello_world">这是下单页面</string>
+    <string name="n1">下面是商品列表</string>
+
+    <string-array name="spinner1">
+        <item>饮料</item>
+        <item>食品</item>
+        <item>生活用品</item>
+        <item>服装</item>
+        <item>书籍文教</item>
+        <item>电子电器</item>
+    </string-array>
+    <string-array name="spinner2">
+        <item>截止时间</item>
+        <item>客户信誉度</item>
+    </string-array>
+
+    <string name="title_activity_main2">商品类型筛选</string>
+    <string name="title_activity_main3">商品列表</string>
+    <string name="title_activity_arrive_spot">送达地</string>
+    <string name="title_activity_available_spot">价格选择</string>
+    <string name="title_activity_commodity_type">购买商品种类</string>
+    <string name="title_activity_deadline">截止时间</string>
+    <string name="title_activity_customer_credit">客户信誉度</string>
+    <string name="title_activity_assess_page">AssessPage</string>
+    <string name="title_activity_goods_list">商品筛选</string>
+
 </resources>
