@@ -41,7 +41,7 @@
     <string name="local_context">http://10.0.3.2:8080/LazyGift/</string>
 
     <!-- 下单筛选部分 -->
-    <string name="app_name2">下单筛选页面</string>
+    <string name="app_name1">下单筛选页面</string>
     <string name="hello_world">这是下单页面</string>
     <string name="n1">下面是商品列表</string>
 
