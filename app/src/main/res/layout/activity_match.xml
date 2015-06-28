@@ -9,10 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:completionHint="请选择你的商品"
-        android:completionThreshold="1"
+        android:completionThreshold="2"
         android:dropDownHorizontalOffset="20dp"
         android:ems="10"
-        android:text=" " >
+        android:text="" >
 
         <requestFocus />
     </AutoCompleteTextView>
