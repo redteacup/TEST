@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_orderDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="详细信息" />
+
+    <TextView
+        android:id="@+id/tv_o_staff_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="接单人id" />
+
+    <TextView
+        android:id="@+id/tv_o_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="订单状态" />
+
+    <TextView
+        android:id="@+id/tv_o_goods_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="物品id" />
+    <TextView
+        android:id="@+id/tv_o_create_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始时间" />
+    <TextView
+        android:id="@+id/tv_o_delivery_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="结束时间" />
+    <TextView
+        android:id="@+id/tv_o_total_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="总金额" />
+    <TextView
+        android:id="@+id/tv_o_user_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="下单人id" />
+    <TextView
+        android:id="@+id/tv_o_destination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="目的地" />
+    <TextView
+        android:id="@+id/tv_o_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="评论" />
+</LinearLayout>

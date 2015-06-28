@@ -1,9 +1,31 @@
 package com.example.liveangel.test;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebView.FindListener;
+import android.widget.Button;
+
+//import com.app.variable.MyAppVariable;
+import com.order.detail.OrderDetail;
+import com.order.manager.OrderManagerActivity;
+import com.place.order.ConfirmOrderActivity;
+import com.setting.address.DAddressSettingActivity;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
+
+import java.util.ArrayList;
 
 
 public class Main extends ActionBarActivity {
@@ -12,7 +34,39 @@ public class Main extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+        //initialize button
+        Button orderButton = (Button) findViewById(R.id.orderButton);
+        orderButton.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent();
+                intent.setClass(Main.this, ConfirmOrderActivity.class);
+                startActivity(intent);
+//                Main.this.finish();
+            }
+        });
+
+
+        Button orderManagerButton = (Button) findViewById(R.id.orderManager);
+        orderManagerButton.setOnClickListener(new Button.OnClickListener(){
+            public void onClick(View view){
+                Intent intent = new Intent();
+                intent.setClass(Main.this, OrderManagerActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        Button daddress_set_btn = (Button) this.findViewById(R.id.Daddress_set_button);
+        daddress_set_btn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(Main.this, DAddressSettingActivity.class);
+                startActivity(intent);
+            }
+        });
+     }
 
 
     @Override
@@ -37,4 +91,13 @@ public class Main extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void OnClickOrderDetail(View view) {
+        Intent intent = new Intent(Main.this,OrderDetail.class);
+        intent.putExtra("order_id", "1");
+        startActivity(intent);
+    }
+
+
+
 }
