@@ -1,4 +1,4 @@
-package com.nju.xiadan.data;
+package com.xiadan.data;
 
 public class orderdata {
 	public static String [] getFenda=new String[]{"赵五  18000000000  芬达","陈六  18111111111  芬达"};

@@ -1,4 +1,4 @@
-package com.nju.xiadan;
+package com.xiadan;
 
 import com.example.xiadan.R;
 
