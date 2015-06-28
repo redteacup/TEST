@@ -1,7 +1,7 @@
 package com.nju.xiadan;
 
 import com.example.xiadan.R;
-import com.xiadan.data.orderdata;
+import com.xiadan.*;
 
 import android.app.Activity;
 import android.os.Bundle;
