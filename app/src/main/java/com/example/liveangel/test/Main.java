@@ -16,6 +16,7 @@ import com.order.manager.OrderManagerActivity;
 import com.place.order.ConfirmOrderActivity;
 import com.setting.address.DAddressSettingActivity;
 import com.InputAndMatch.inputAndMatch;
+import com.show.NoticeActivity;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -75,6 +76,16 @@ public class Main extends ActionBarActivity {
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(Main.this,inputAndMatch.class);
+                startActivity(intent);
+            }
+        });
+
+        Button noticeButton = (Button) this.findViewById(R.id.noticeButton);
+        noticeButton.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent();
+                intent.setClass(Main.this, NoticeActivity.class);
                 startActivity(intent);
             }
         });

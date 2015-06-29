@@ -73,5 +73,11 @@
             android:text="输入商品名"
             android:id="@+id/goodButton"
             android:layout_gravity="center_horizontal" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="显示公告"
+            android:id="@+id/noticeButton"
+            android:layout_gravity="center_horizontal"/>
      </LinearLayout>
 </RelativeLayout>
