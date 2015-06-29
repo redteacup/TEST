@@ -15,6 +15,7 @@ import com.order.detail.OrderDetail;
 import com.order.manager.OrderManagerActivity;
 import com.place.order.ConfirmOrderActivity;
 import com.setting.address.DAddressSettingActivity;
+import com.InputAndMatch.inputAndMatch;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -63,6 +64,17 @@ public class Main extends ActionBarActivity {
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(Main.this, DAddressSettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        Button goodButton = (Button) this.findViewById(R.id.goodButton);
+        daddress_set_btn.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(Main.this,inputAndMatch.class);
                 startActivity(intent);
             }
         });
