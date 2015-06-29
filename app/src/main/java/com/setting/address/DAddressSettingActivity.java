@@ -33,6 +33,7 @@ import java.util.ArrayList;
 
 public class DAddressSettingActivity extends ActionBarActivity {
 
+    private String relative_url = "/MyAddrSet";
     private Spinner dorm_spinner;
     private TextView dorm_view;
     private EditText edit_room;
@@ -56,7 +57,7 @@ public class DAddressSettingActivity extends ActionBarActivity {
             }
         };
 
-        requestIP = this.getResources().getString(R.string.server_address);
+        requestIP = this.getResources().getString(R.string.server_address) + relative_url;
         dorm_view = (TextView) this.findViewById(R.id.label_dorm);
         dorm_spinner = (Spinner) this.findViewById(R.id.dorm_spinner);
         edit_room = (EditText) this.findViewById(R.id.room_editText);
@@ -70,7 +71,7 @@ public class DAddressSettingActivity extends ActionBarActivity {
         });
 
         String[] mItems = getResources().getStringArray(R.array.spinner_dorms);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, mItems);
+        MyArrayAdapter adapter = new MyArrayAdapter(DAddressSettingActivity.this, mItems);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dorm_spinner.setAdapter(adapter);
     }

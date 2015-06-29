@@ -8,7 +8,7 @@
     <string name="content_in_label_room"> 房间号 </string>
     <string name="content_in_button_submit_DAdress">确认地址</string>
     <string name="title_activity_confirm_order">ConfirmOrderActivity</string>
-    <string name="server_address">http://10.0.3.2:8080/LazyGift/MyAddrSet</string>
+    <string name="server_address">http://218.94.159.104:5000/LazyGift/</string>
 
     <string-array name="spinner_dorms">
         <item>费彝明楼</item>
