@@ -21,7 +21,8 @@ import java.util.ArrayList;
  */
 public class inputAndMatch extends Activity{
 
-    String[] goods = new String[]{"百事可乐","可口可乐"};
+    String[] goods = null;
+   // String[] goods = new String[]{"百事可乐","可口可乐"};
     ArrayList<Good> list = null;
     getlist gl;
   //  String fileName = "data.txt";
@@ -31,10 +32,10 @@ public class inputAndMatch extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match);
 
-      /*  list = gl.getlist();
+       list = gl.getlist();
         for(int i=0;i<list.size();i++){
             goods[i] = list.get(i).name;
-        }*/
+        }
 
         // 创建一个ArrayAdapter封装数组
         com.InputAndMatch.ArrayAdapter<String> av = new com.InputAndMatch.ArrayAdapter<String>(this,
