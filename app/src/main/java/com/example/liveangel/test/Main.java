@@ -110,7 +110,7 @@ public class Main extends ActionBarActivity {
 
     public void OnClickOrderDetail(View view) {
         Intent intent = new Intent(Main.this,OrderDetail.class);
-        intent.putExtra("order_id", "1");
+        intent.putExtra("order_id", "4");
         startActivity(intent);
     }
 
