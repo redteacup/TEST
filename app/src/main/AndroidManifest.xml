@@ -54,6 +54,14 @@
             android:name="com.order.detail.OrderDetail"
             android:label="订单详情" >
         </activity>
+        <activity
+            android:name="com.show.NoticeActivity"
+            android:label="显示公告">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>>
     </application>
     <!-- 下单筛选 -->
   <!--   <application
