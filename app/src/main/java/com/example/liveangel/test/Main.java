@@ -71,7 +71,7 @@ public class Main extends ActionBarActivity {
 
 
         Button goodButton = (Button) this.findViewById(R.id.goodButton);
-        daddress_set_btn.setOnClickListener(new Button.OnClickListener(){
+        goodButton.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(Main.this,inputAndMatch.class);
